@@ -1,0 +1,39 @@
+/* src/components/PaginationControls.css */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pages button {
+  padding: 6px 12px;
+  margin: 2px;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pages button.active {
+  background-color: #7952b3;
+  color: white;
+  border-color: #7952b3;
+}
+
+.limit-inputs label {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.limit-inputs input {
+  margin-left: 5px;
+  padding: 4px 6px;
+  font-size: 14px;
+  width: 50px;
+  border: 1px solid rgb(222, 226, 230);
+  border-radius: 2px;
+}

@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Search Places App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Search Places allows users to search cities with decent UI using GeoDB API. It is responsive and supports pagination, keyboard shortcuts, and result customization.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Responsive search interface
+- Pagination with page selection
+- Limit API result count (5–10)
+- Keyboard shortcut: `Ctrl/Cmd + /` focuses search
+- Country flags fetched from `https://flagsapi.com/`
+- Debounced search (500ms delay)
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- Axios for API requests
+- Vanilla CSS for styling (no framework)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+```bash
+# Clone the repo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm install
+npm run dev
+```
 
-### `npm run build`
+## .env Configuration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Create a `.env` file in the root directory with the following:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```env
+VITE_API_URL=https://wft-geo-db.p.rapidapi.com/v1/geo
+VITE_API_KEY=your_api_key_here
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can get the API key from [RapidAPI](https://rapidapi.com/wirefreethought/api/geodb-cities).
 
-### `npm run eject`
+## Folder Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```text
+src/
+├── App.jsx
+├── App.css
+├── components/
+│   ├── SearchBox.jsx
+│   ├── ResultsTable.jsx
+│   ├── PaginationControls.jsx
+│   ├── SearchBox.css
+│   ├── ResultsTable.css
+│   └── PaginationControls.css
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Reference
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Base URL: `https://wft-geo-db.p.rapidapi.com/v1/geo/cities`
+- Required headers:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  ```json
+  {
+    "x-rapidapi-key": "YOUR_API_KEY",
+    "x-rapidapi-host": "wft-geo-db.p.rapidapi.com"
+  }
+  ```
 
-## Learn More
+- Query params:
+  - `namePrefix`: Search term
+  - `limit`: Number of results (5–10)
+  - `offset`: Pagination offset
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Bonus Functionality
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- API calls are debounced to avoid firing on every keystroke
+- User can customize number of items shown in table (default 3)
 
-### Code Splitting
+## Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+All views are responsive down to 300px width.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
