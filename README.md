@@ -26,17 +26,6 @@ npm install
 npm run dev
 ```
 
-## .env Configuration
-
-Create a `.env` file in the root directory with the following:
-
-```env
-VITE_API_URL=https://wft-geo-db.p.rapidapi.com/v1/geo
-VITE_API_KEY=your_api_key_here
-```
-
-You can get the API key from [RapidAPI](https://rapidapi.com/wirefreethought/api/geodb-cities).
-
 ## Folder Structure
 
 ```text
